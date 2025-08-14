@@ -1,4 +1,4 @@
-This is the starting code for Assignment 3.
+This is the starting code for Assignment 4.
 
   1. If you are comfortable with Git and GitHub... consider forking this
      repository.
