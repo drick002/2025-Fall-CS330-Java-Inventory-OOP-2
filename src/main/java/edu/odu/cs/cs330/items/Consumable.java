@@ -108,6 +108,9 @@ public class Consumable extends Item {
     public void read(Scanner snr)
     {
         // Complete this method
+        super.name = snr.next();
+        effect = snr.next();
+        uses = snr.nextInt();
     }
 
     /**
@@ -116,7 +119,7 @@ public class Consumable extends Item {
     @Override
     public Item clone()
     {
-        Consumable cpy = new Consumable();
+        Consumable cpy = new Consumable(this);
         
         // Add the missing logic
 
@@ -152,7 +155,8 @@ public class Consumable extends Item {
     public int hashCode()
     {
         // Replace the return
-        return -1;
+        return name.hashCode() + effect.hashCode();
+        //return -1;
     }
 
     /**
@@ -163,9 +167,9 @@ public class Consumable extends Item {
     {
         return String.join(
             System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
+            String.format("  Nme: %s", super.getName()),
+            String.format("  Eft: %s", effect),
+            String.format("  Use: %d", uses),                  
             ""
         );
     }
