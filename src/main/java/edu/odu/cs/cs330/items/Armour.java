@@ -45,6 +45,12 @@ public class Armour extends Equippable {
 
         this.durability = src.durability;
         // Copt the remaining fields (data members)
+        this.material = src.getMaterial();
+        this.modifier = src.getModifier();
+        this.modifierLevel = src.modifierLevel;
+        this.element = src.getElement();
+        this.defense = src.defense;
+        this.name = src.getName();
     }
 
     /**
@@ -82,7 +88,12 @@ public class Armour extends Equippable {
         super.name = snr.next();
 
         // Use snr.next() and snr.nextInt() to read in values remaining fields
-
+        super.material = snr.next();
+        super.durability = snr.nextInt();
+        defense = snr.nextInt();
+        super.modifier = snr.next();
+        super.modifierLevel = snr.nextInt();
+        super.element = snr.next();
     }
 
     /**
@@ -92,7 +103,8 @@ public class Armour extends Equippable {
     public Item clone()
     {
         // Replace the return
-        return new Armour();
+        Armour copy = new Armour(this);
+        return copy;
     }
 
     /**
@@ -134,9 +146,12 @@ public class Armour extends Equippable {
     {
         return String.join(
             System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
+            String.format("  Nme: %s", super.getName()),
+            String.format("  Dur: %d", super.getDurability()),
+            String.format("  Def: %d", defense),
+            String.format("  Mtl: %s", super.getMaterial()),
+            String.format("  Mdr: %s (Lvl %d)", super.getModifier(), super.getModifierLevel()),
+            String.format("  Emt: %s", super.getElement()),       
             ""
         );
     }
